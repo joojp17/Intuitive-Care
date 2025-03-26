@@ -24,7 +24,7 @@ def scrapping_anexos_pdf():
             return
         
         # Inicio do download dos PDFs e a compactação em ZIP
-        os.makedirs('downloads', exist_ok=True)
+        os.makedirs('output', exist_ok=True)
         
         anexos_baixados = []
         
@@ -34,7 +34,7 @@ def scrapping_anexos_pdf():
 
             pdf = requests.get(pdf_url)
             
-            filename = os.path.join('downloads', os.path.basename(pdf_url))
+            filename = os.path.join('output', os.path.basename(pdf_url))
             
             with open(filename, 'wb') as f:
                 f.write(pdf.content)
@@ -42,7 +42,7 @@ def scrapping_anexos_pdf():
             anexos_baixados.append(filename)
             print(f"Baixado: {filename}")
 
-        with zipfile.ZipFile(os.path.join('downloads', 'anexos.zip'), 'w') as zipf:
+        with zipfile.ZipFile(os.path.join('output', 'anexos.zip'), 'w') as zipf:
             for file in anexos_baixados:
                 zipf.write(file, os.path.basename(file))
         

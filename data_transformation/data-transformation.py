@@ -118,30 +118,34 @@ def extrair_tabelas(pdf_path):
         traceback.print_exc()
         return None
 
+output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'output'))
+
+os.makedirs(output_dir, exist_ok=True)
+
 def sub_abreviacao(df):
     abbr_map = {'OD': 'Seg. Odontológica', 'AMB': 'Seg. Ambulatorial'}
     df_atualizado = df.copy()
     df_atualizado.rename(columns=abbr_map, inplace=True)
     return df_atualizado
 
-def salvar_csv(df, filename):
+def salvar_csv(df, filepath):
     try:
-        df.to_csv(filename, index=False, encoding='utf-8')
-        print(f"Dados salvos em {filename}")
+        df.to_csv(filepath, index=False, encoding='utf-8')
+        print(f"Dados salvos em {filepath}")
     except Exception as e:
         print(f"Erro ao salvar CSV: {e}")
 
-def salvar_zip(csv_path, zip_filename):
+def salvar_zip(csv_filepath, zip_filepath):
     try:
-        with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
-            zipf.write(csv_path, arcname=os.path.basename(csv_path))
-        print(f"Arquivo compactado em {zip_filename}")
+        with zipfile.ZipFile(zip_filepath , 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(csv_filepath, arcname=os.path.basename(csv_filepath))
+        print(f"Arquivo compactado em {zip_filepath}")
     except Exception as e:
         print(f"Erro ao compactar arquivo: {e}")
 
 def main():
     # Caminho para o arquivo PDF dentro do ZIP do scraping anterior
-    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'web_scraping', 'downloads', 'anexos.zip'))
+    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'output', 'anexos.zip'))
     
     if not os.path.exists(base_path):
         print(f"Arquivo não encontrado: {base_path}")
@@ -168,12 +172,15 @@ def main():
     
     csv_filename = f"Teste_JoaoPedro.csv"
     zip_filename = f"Teste_JoaoPedro.zip"
+
+    csv_path = os.path.join(output_dir, csv_filename)
+    zip_path = os.path.join(output_dir, zip_filename)
     
-    salvar_csv(df_updated, csv_filename)
-    salvar_zip(csv_filename, zip_filename)
+    salvar_csv(df_updated, csv_path)
+    salvar_zip(csv_path, zip_path)
     
     os.remove(pdf_filename)
-    os.remove(csv_filename)
+    os.remove(csv_path)
 
 if __name__ == "__main__":
     main()
