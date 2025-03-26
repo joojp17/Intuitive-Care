@@ -119,7 +119,7 @@ def extrair_tabelas(pdf_path):
         return None
 
 def sub_abreviacao(df):
-    abbr_map = {'OD': 'Odontológico', 'AMB': 'Ambulatorial'}
+    abbr_map = {'OD': 'Seg. Odontológica', 'AMB': 'Seg. Ambulatorial'}
     df_atualizado = df.copy()
     df_atualizado.rename(columns=abbr_map, inplace=True)
     return df_atualizado
