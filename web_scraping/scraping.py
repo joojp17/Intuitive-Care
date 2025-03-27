@@ -3,12 +3,8 @@ from bs4 import BeautifulSoup
 import os
 import zipfile
 
-def scrapping_anexos_pdf():
-    """
-    Baixar os arquivos PDF 'Anexo_I' e 'Anexo_II' e os compactar em um ZIP.
-    """
+def scraping_anexos_pdf():
     try:
-        # Acessando a página e extraindo os links dos PDFs
         pagina = requests.get('https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos')
         
         soup = BeautifulSoup(pagina.text, 'html.parser')
@@ -18,7 +14,6 @@ def scrapping_anexos_pdf():
             class_='internal-link'
         )
         
-        # Verifica se encontrou anexos
         if not anexos_links:
             print("Nenhum anexo PDF encontrado.")
             return
@@ -49,7 +44,6 @@ def scrapping_anexos_pdf():
         for file in anexos_baixados:
             os.remove(file)
         
-        # Finalizando o processo
         print("Arquivos compactados em anexos.zip com sucesso!")
     
     #Exceções para tratamento de erros
@@ -58,4 +52,4 @@ def scrapping_anexos_pdf():
     except Exception as e:
         print(f"Erro inesperado: {e}")
 
-scrapping_anexos_pdf()
+scraping_anexos_pdf()

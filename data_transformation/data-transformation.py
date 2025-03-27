@@ -4,16 +4,6 @@ import tabula
 import pandas as pd
 
 def mesclar_quebras(df):
-    """
-    Limpa e agrupa colunas quebradas em linhas múltiplas.
-    
-    Args:
-        df (pd.DataFrame): DataFrame para processamento
-    
-    Returns:
-        pd.DataFrame: DataFrame processado
-    """
-    # Função para mesclar valores de células quebradas
     def mesclar_valores(df):
 
         df_limpo = df.copy()
@@ -24,17 +14,16 @@ def mesclar_quebras(df):
         
         return df_limpo
     
-    # Mesclar cabeçalhos quebrados
     def mesclar_cabecalho(df):
-        # Se houver mais de uma linha de cabeçalho
+
         if len(df.columns) > len(df.columns.unique()):
-            # Pegar as primeiras duas linhas
+
             cabecalho_linha1 = df.columns
             cabecalho_linha2 = df.iloc[0]
             
             colunas_novas = []
             for i, col in enumerate(cabecalho_linha1):
-                # Verificar se o valor da próxima linha não é nulo
+
                 texto_adicional = str(cabecalho_linha2[i]) if pd.notna(cabecalho_linha2[i]) else ''
                 nova_coluna = f"{col} {texto_adicional}".strip()
                 colunas_novas.append(nova_coluna)
@@ -53,15 +42,6 @@ def mesclar_quebras(df):
     return df_limpo
 
 def extrair_tabelas(pdf_path):
-    """
-    Extrai as tabelas do Rol de Procedimentos e Eventos em Saúde
-    
-    Args:
-        pdf_path (str): Caminho completo para o arquivo PDF
-    
-    Returns:
-        pandas.DataFrame: DataFrame consolidado com os dados extraídos
-    """
     try:
         
         dfs = tabula.read_pdf(
@@ -81,11 +61,10 @@ def extrair_tabelas(pdf_path):
             df.columns[0] != 'Unnamed: 0'  
         ]
         
-        # Processar cada tabela
         if tabelas:
             tabelas_processadas = []
             for df in tabelas:
-                # Limpar e mesclar dados
+
                 df.columns = [
                     col.replace('\r', ' ').replace('/r', ' ').strip() 
                     for col in df.columns
@@ -93,10 +72,8 @@ def extrair_tabelas(pdf_path):
 
                 df_limpo = mesclar_quebras(df)
                 
-                # Remover linhas totalmente vazias
                 df_limpo.dropna(how='all', inplace=True)
                 
-                # Remover linhas de legenda e página
                 df_limpo = df_limpo[
                     ~df_limpo.iloc[:, 0].str.contains('Legenda:', na=False) &
                     ~df_limpo.iloc[:, 0].str.contains('Página', na=False)
@@ -104,7 +81,6 @@ def extrair_tabelas(pdf_path):
                 
                 tabelas_processadas.append(df_limpo)
             
-            # Concatenar tabelas
             combined_df = pd.concat(tabelas_processadas, ignore_index=True)
             
             return combined_df
@@ -161,7 +137,6 @@ def main():
         pdf_filename = pdf[0]
         zip_ref.extract(pdf_filename)
     
-    # Extrair tabelas do PDF
     df = extrair_tabelas(pdf_filename)
     
     if df is None:
