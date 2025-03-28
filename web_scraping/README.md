@@ -6,9 +6,9 @@ Este teste realiza o acesso ao site da ANS, faz o download dos **Anexos I e II**
 
 ## Como Funciona
 
-1. **Acessa o site**: O código faz o scraping do site [https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-dasociedade/atualizacao-do-rol-de-procedimentos](https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-dasociedade/atualizacao-do-rol-de-procedimentos).
+1. **Acessa o site**: O código faz o scraping do site [https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos](https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos).
 2. **Baixa os anexos**: O script encontra e baixa os arquivos PDF dos Anexos I e II.
-3. **Compactação**: Depois, ele compacta os arquivos em um único formato (ZIP ou outro especificado).
+3. **Compactação**: Depois, ele compacta os arquivos em um único formato (ZIP).
 
 ## Como Executar
 

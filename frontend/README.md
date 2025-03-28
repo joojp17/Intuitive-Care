@@ -1,33 +1,28 @@
-# frontend
+# Teste de Frontend 💻
 
-This template should help get you started developing with Vue 3 in Vite.
+## Objetivo
 
-## Recommended IDE Setup
+Desenvolver uma interface web usando Vue.js que interaja com um servidor em Python para realizar uma busca textual.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Como Funciona
 
-## Type Support for `.vue` Imports in TS
+1. **Entrada de dados**: Inserir o texto na busca por uma operadora
+2. **Acesso ao servidor**: Após isso, será realizada uma chamada ao servidor por registros mais relevantes, seguindo o texto inserido.
+2. **Listagem das operadoras**: Então, é exibido em uma tabela os dados dos registros relevantes conforme indicado.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Como Executar
 
-## Customize configuration
+1. Instale as dependências necessárias na pasta `frontend` com o comando:
+    ```bash
+    npm install
+    ```
+2. Verifique se a porta `5173` está disponível em sua máquina.    
+3. Execute o comando na pasta `frontend`:
+    ```bash
+    npm run dev 
+    ```
+4. Para realizar o teste, utilize `http://localhost:5173/`.    
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Projeto em nuvem
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+Para esse projeto, eu realizei o *deploy* em nuvem da interface, acesso em [https://teste-frontend-tau.vercel.app/](https://teste-frontend-tau.vercel.app/).`
