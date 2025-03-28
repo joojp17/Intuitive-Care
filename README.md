@@ -18,7 +18,7 @@ O projeto está organizado em diferentes seções, cada uma com um teste especí
 Cada teste foi projetado para resolver desafios reais de coleta, transformação e análise de dados. Veja abaixo um resumo do que cada um envolve:
 
 ### 1️⃣ **Teste de Web Scraping**
-Acesso ao site da ANS, download dos **Anexos I e II** em PDF e compactação em um único arquivo. 🗂️
+Acesso ao site da ANS, download de anexos em PDF e compactação em um único arquivo. 🗂️
 
 ### 2️⃣ **Teste de Transformação de Dados**
 Extração dos dados do PDF, conversão para **CSV**, compactação do arquivo e substituição de abreviações para garantir legibilidade. 📊
@@ -27,7 +27,7 @@ Extração dos dados do PDF, conversão para **CSV**, compactação do arquivo e
 Baixa dados de demonstrações contábeis, cria as tabelas necessárias no banco de dados e realiza consultas analíticas para responder a perguntas sobre as despesas de operadoras de saúde. 💼
 
 ### 4️⃣ **Teste de API**
-Desenvolvimento de uma **interface web** com Vue.js que interage com um servidor Python. A ideia é realizar buscas eficientes e fornecer respostas rápidas! ⚡
+Desenvolvimento de uma **interface web** com Vue.js que interage com um servidor Python. ⚡
 
 ## 🛠️ Como Executar
 
