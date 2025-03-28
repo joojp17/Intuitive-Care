@@ -15,12 +15,17 @@ Desenvolver um servidor em Python para realizar consultas em um arquivo *.CSV* e
     ```bash
     pip install -r requirements.txt
     ```
-2. Verifique se a porta `5000` está disponível em sua máquina.    
-3. Execute o script de app.py na pasta `api` com o comando:
+2. Verifique se o arquivo `Relatorio_cadop.csv` existe em `/output/downloads`
+3. Verifique se a porta `5000` está disponível em sua máquina.    
+4. Execute o script de app.py na pasta `api` com o comando:
     ```bash
     python app.py
     ```
-4. Para realizar o teste, utilize `http://localhost:5000/api/buscar?q=sua_query_aqui`.    
+5. Para realizar o teste, utilize `http://localhost:5000/api/buscar?q=sua_query_aqui`.    
+
+## Coleção Postman
+
+Também existe um arquivo *.json* da coleção no Postman para demonstrar o resultado.
 
 ## Projeto em nuvem
 

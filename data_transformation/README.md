@@ -6,10 +6,10 @@ Este teste extrai os dados da tabela Rol de Procedimentos e Eventos em Saúde do
 
 ## Como Funciona
 
-1. **Acessa o PDF**: O código acessa o PDF *Anexo I* do teste anterior em `/output`.
+1. **Acessar o PDF**: O código acessa o PDF *Anexo I* do teste anterior em `/output`.
 2. **Extração de dados**: O script procura por dados tabelados, seguindo o padrão de tabela com cabeçalho em todas as páginas.
-4. **Criação da tabela**: Ao extrair todos os dados, é feita a tabelação no formato *.CSV*.
-3. **Compactação**: Depois, ele compacta o arquivo em um único formato *ZIP*.
+3. **Criação da tabela**: Ao extrair todos os dados, é feita a tabelação no formato *.CSV*.
+4. **Compactação**: Depois, ele compacta o arquivo em um único formato *ZIP*.
 
 ## Como Executar
 

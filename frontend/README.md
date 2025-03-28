@@ -8,7 +8,7 @@ Desenvolver uma interface web usando Vue.js que interaja com um servidor em Pyth
 
 1. **Entrada de dados**: Inserir o texto na busca por uma operadora
 2. **Acesso ao servidor**: Após isso, será realizada uma chamada ao servidor por registros mais relevantes, seguindo o texto inserido.
-2. **Listagem das operadoras**: Então, é exibido em uma tabela os dados dos registros relevantes conforme indicado.
+3. **Listagem das operadoras**: Então, é exibido em uma tabela os dados dos registros relevantes conforme indicado.
 
 ## Como Executar
 

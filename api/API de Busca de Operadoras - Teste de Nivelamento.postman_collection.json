@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "95e8f226-e28d-4e48-839c-edba98b6c3c9",
+		"name": "API de Busca de Operadoras - Teste de Nivelamento",
+		"description": "### **🚀 Introdução**\n\nEsta coleção permite testar o endpoint **GET /api/buscar**, que realiza uma busca textual no cadastro de operadoras.\n\n### **🔖 Como usar esta coleção**\n\n#### **Passo 1: Enviar uma requisição**\n\nUtilize o endpoint **GET /api/buscar** para pesquisar operadoras pelo nome.\n\nExemplo de requisição:\n\n```\nGET http://localhost:5000/api/buscar?q=bradesco\n\n ```\n\n#### **Passo 2: Visualizar as respostas**\n\nVerifique a aba de resposta para conferir o **código de status** (`200 OK`), **tempo de resposta** e os **dados retornados em JSON**.\n\n#### **Passo 3: Modificar o parâmetro de consulta**\n\nAltere o parâmetro `q` na URL para pesquisar diferentes operadoras.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37668194"
+	},
+	"item": [
+		{
+			"name": "Buscar por Razão Social",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/buscar?q=bradesco",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "bradesco"
+						}
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://teste-api-0ocr.onrender.com/api"
+		}
+	]
+}
